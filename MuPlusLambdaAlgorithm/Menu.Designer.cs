@@ -68,7 +68,7 @@ namespace MuPlusLambdaAlgorithm
             this.muNumericInput.Size = new System.Drawing.Size(120, 22);
             this.muNumericInput.TabIndex = 2;
             this.muNumericInput.Value = new decimal(new int[] {
-            2,
+            4,
             0,
             0,
             0});
