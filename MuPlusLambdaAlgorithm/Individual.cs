@@ -8,10 +8,13 @@ namespace MuPlusLambdaAlgorithm
 
         public double X2 { get; set; }
 
-        public Individual(double X1, double X2)
+        public double F { get; set; }
+
+        public Individual(double x1, double x2)
         {
-            this.X1 = X1;
-            this.X2 = X2;
+            this.X1 = x1;
+            this.X2 = x2;
+            F = Helper.F(x1, x2);
         }
 
         public int CompareTo(object obj)

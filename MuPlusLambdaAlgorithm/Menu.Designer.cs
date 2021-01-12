@@ -98,6 +98,7 @@ namespace MuPlusLambdaAlgorithm
             this.startAlghoritmButton.TabIndex = 4;
             this.startAlghoritmButton.Text = "Start";
             this.startAlghoritmButton.UseVisualStyleBackColor = true;
+            this.startAlghoritmButton.Click += new System.EventHandler(this.startAlghoritmButton_Click);
             // 
             // Menu
             // 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuPlusLambdaAlgorithm
 {
@@ -16,10 +14,10 @@ namespace MuPlusLambdaAlgorithm
 
             while (population.Count() <= populationSize)
             {
-                X1 = rnd.NextDouble() * 100;
-                X2 = rnd.NextDouble() * 100;
+                X1 = rnd.Next(0, 100);
+                X2 = rnd.Next(0, 100);
 
-                population.Add(new Individual(X1, X2));
+                population.Add(new Individual((double)X1,(double) X2));
             }
 
             return population.ToList();
