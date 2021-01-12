@@ -9,12 +9,18 @@ namespace MuPlusLambdaAlgorithm
         private List<Individual> _parentalPopulation = new List<Individual>();
         private int _mu;
         private int _lambda;
+        private int _iterationsCount;
+        private int _tournamentSize;
+        public double _mutationLevel;
 
-        public MuPlusLambdaForm(int mu, int lambda)
+        public MuPlusLambdaForm(int mu, int lambda, int iterationsCount, int tournamentSize, double mutationLevel)
         {
             InitializeComponent();
             _mu = mu;
             _lambda = lambda;
+            _iterationsCount = iterationsCount;
+            _tournamentSize = tournamentSize;
+            _mutationLevel = mutationLevel;
         }
 
         public void MuPlusLambdaAlghoritm()
