@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -60,6 +61,13 @@ namespace MuPlusLambdaAlgorithm
                 CreateChart();
                 DrawParentsOnChart();
                 DrawOffspringPopulationOnChart();
+
+                if (CheckIfStopAlghoritm())
+                {
+                    this.iterationValueLabel.Text = "End";
+                    iteration = _iterationsCount;
+                    break;
+                }
 
                 await Task.Delay(2000);
 
@@ -138,7 +146,34 @@ namespace MuPlusLambdaAlgorithm
                 || PopulationHelper.CheckIfPopulationContainsIndividual(_offspringPopulation, individual);
         }
 
+        private bool CheckIfStopAlghoritm()
+        {
+            List<float> differenceOnX1 = new List<float>();
+            List<float> differenceOnX2 = new List<float>();
+            for (int i = 0; i < _wholePopulation.Count(); i++)
+            {
+                for (int j = 0; j < _wholePopulation.Count(); j++)
+                {
+                    if(i == j) continue;
 
+                    differenceOnX1.Add(_wholePopulation[i].X1 - _wholePopulation[j].X1);
+                    differenceOnX2.Add(_wholePopulation[i].X2 - _wholePopulation[j].X2);
+                }
 
+            }
+
+            differenceOnX1.Sort();
+            differenceOnX2.Sort();
+
+            if(Math.Abs(differenceOnX1[differenceOnX1.Count() - 1] - differenceOnX1[0]) < 30f)
+            {
+                if (Math.Abs(differenceOnX2[differenceOnX2.Count() - 1] - differenceOnX2[0]) < 30f)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
