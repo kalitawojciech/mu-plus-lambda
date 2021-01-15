@@ -29,10 +29,10 @@ namespace MuPlusLambdaAlgorithm
                 tournamentWinners.Add(parentalPopulation[index]);
             }
 
-            Individual offspringParent = tournamentWinners.OrderBy(x => x.F).FirstOrDefault();
+            Individual offspringParent = tournamentWinners.OrderByDescending(x => x.F).FirstOrDefault();
 
             int mutationChange = random.Next(-mutationLevel, mutationLevel);
-            double x1, x2;
+            float x1, x2;
 
             if(offspringParent.X1 + mutationChange < 0 )  // mutationChange value is less than 0
             {

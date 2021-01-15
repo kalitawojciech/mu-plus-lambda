@@ -38,6 +38,8 @@ namespace MuPlusLambdaAlgorithm
 
             for (int iteration = 0; iteration < _iterationsCount; iteration++)
             {
+                this.iterationValueLabel.Text = (iteration + 1).ToString();
+
                 _wholePopulation = _parentalPopulation.ToList();
 
                 while(_offspringPopulation.Count() < _lambda)
@@ -52,6 +54,7 @@ namespace MuPlusLambdaAlgorithm
 
                 _parentalPopulation.Clear();
                 _parentalPopulation = PopulationHelper.GetNewParentalPopulation(_wholePopulation, _mu);
+                this.theBestResultValueLabel.Text = (PopulationHelper.GetIndividualWithTheHighestF(_parentalPopulation).F).ToString();
 
                 ClearChart();
                 CreateChart();

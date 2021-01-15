@@ -4,13 +4,13 @@ namespace MuPlusLambdaAlgorithm
 {
     public class Individual : IComparable
     {
-        public double X1 { get; set; }
+        public float X1 { get; set; }
 
-        public double X2 { get; set; }
+        public float X2 { get; set; }
 
-        public double F { get; set; }
+        public float F { get; set; }
 
-        public Individual(double x1, double x2)
+        public Individual(float x1, float x2)
         {
             this.X1 = x1;
             this.X2 = x2;

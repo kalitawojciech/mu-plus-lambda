@@ -17,7 +17,7 @@ namespace MuPlusLambdaAlgorithm
                 X1 = rnd.Next(0, 100);
                 X2 = rnd.Next(0, 100);
 
-                population.Add(new Individual((double)X1,(double) X2));
+                population.Add(new Individual((float)X1,(float) X2));
             }
 
             return population.ToList();
@@ -25,7 +25,12 @@ namespace MuPlusLambdaAlgorithm
 
         public static List<Individual> GetNewParentalPopulation(List<Individual> population, int mu)
         {
-            return population.OrderBy(x => x.F).Take(mu).ToList();
+            return population.OrderByDescending(x => x.F).Take(mu).ToList();
+        }
+
+        public static Individual GetIndividualWithTheHighestF(List<Individual> population)
+        {
+            return population.OrderByDescending(x => x.F).FirstOrDefault();
         }
 
         public static bool CheckIfPopulationContainsIndividual(List<Individual> population, Individual individual)
