@@ -27,7 +27,18 @@ namespace MuPlusLambdaAlgorithm
                 tournamentWinners.Add(parentalPopulation[index]);
             }
 
-            Individual offspringParent = tournamentWinners.OrderByDescending(x => x.F).FirstOrDefault();
+            Individual offspringParent;
+
+            if (tournamentSize > 1 && PossibilityOfWinning() > 70)
+            {
+                offspringParent = tournamentWinners.OrderByDescending(x => x.F).Skip(1).FirstOrDefault();
+            }
+            else
+            {
+                offspringParent = tournamentWinners.OrderByDescending(x => x.F).FirstOrDefault();
+            }
+
+            
 
             int mutationChange = random.Next(-mutationLevel, mutationLevel);
             float x1, x2;
@@ -50,6 +61,12 @@ namespace MuPlusLambdaAlgorithm
             }
 
             return oldParameterValue + mutationChange;
+        }
+
+        private static int PossibilityOfWinning()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
         }
     }
 }

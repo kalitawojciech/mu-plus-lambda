@@ -34,7 +34,7 @@ namespace MuPlusLambdaAlgorithm
             CreateChart();
             DrawParentsOnChart();
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
 
             for (int iteration = 0; iteration < _iterationsCount; iteration++)
             {
@@ -59,8 +59,9 @@ namespace MuPlusLambdaAlgorithm
                 ClearChart();
                 CreateChart();
                 DrawParentsOnChart();
+                DrawOffspringPopulationOnChart();
 
-                await Task.Delay(1000);
+                await Task.Delay(2000);
 
                 _offspringPopulation.Clear();
                 _wholePopulation.Clear();
@@ -94,7 +95,7 @@ namespace MuPlusLambdaAlgorithm
                 Name = $"Parents",
                 ChartType = SeriesChartType.Point,
                 MarkerStyle = MarkerStyle.Circle,
-                MarkerSize = 5,
+                MarkerSize = 10,
             };
 
             for (int i = 0; i < _mu; i++)
@@ -103,6 +104,25 @@ namespace MuPlusLambdaAlgorithm
             }
 
             muPlusLambdaChart.Series.Add(serieOfParents);
+        }
+
+
+        public void DrawOffspringPopulationOnChart()
+        {
+            Series serieOfOffspringPopulation = new Series
+            {
+                Name = $"Offspring",
+                ChartType = SeriesChartType.Point,
+                MarkerStyle = MarkerStyle.Star6,
+                MarkerSize = 10,
+            };
+
+            for (int i = 0; i < _mu; i++)
+            {
+                serieOfOffspringPopulation.Points.AddXY(_offspringPopulation[i].X1, _offspringPopulation[i].X2);
+            }
+
+            muPlusLambdaChart.Series.Add(serieOfOffspringPopulation);
         }
 
         public void ClearChart()
@@ -115,7 +135,7 @@ namespace MuPlusLambdaAlgorithm
         private bool CheckIfNewOffspringIsNotUnique(Individual individual)
         {
             return PopulationHelper.CheckIfPopulationContainsIndividual(_parentalPopulation, individual)
-                && PopulationHelper.CheckIfPopulationContainsIndividual(_offspringPopulation, individual);
+                || PopulationHelper.CheckIfPopulationContainsIndividual(_offspringPopulation, individual);
         }
 
 

@@ -165,7 +165,7 @@ namespace MuPlusLambdaAlgorithm
             // 
             this.mutationLevelNumericInput.Location = new System.Drawing.Point(129, 91);
             this.mutationLevelNumericInput.Minimum = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -173,7 +173,7 @@ namespace MuPlusLambdaAlgorithm
             this.mutationLevelNumericInput.Size = new System.Drawing.Size(120, 22);
             this.mutationLevelNumericInput.TabIndex = 9;
             this.mutationLevelNumericInput.Value = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -187,7 +187,7 @@ namespace MuPlusLambdaAlgorithm
             this.mutationLevelLabel.TabIndex = 10;
             this.mutationLevelLabel.Text = "mutation level";
             // 
-            // Menu
+            // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -203,7 +203,7 @@ namespace MuPlusLambdaAlgorithm
             this.Controls.Add(this.muNumericInput);
             this.Controls.Add(this.lambdaLabel);
             this.Controls.Add(this.muLabel);
-            this.Name = "Menu";
+            this.Name = "MenuForm";
             this.Text = "Menu";
             ((System.ComponentModel.ISupportInitialize)(this.muNumericInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lambdaNumericInput)).EndInit();
