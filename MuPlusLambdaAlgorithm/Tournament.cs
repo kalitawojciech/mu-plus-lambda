@@ -8,7 +8,7 @@ namespace MuPlusLambdaAlgorithm
 {
     public static class Tournament
     {
-        public static Individual GetOffspring(List<Individual> parentalPopulation, int tournamentSize, double mutationLevel)
+        public static Individual GetOffspring(List<Individual> parentalPopulation, int tournamentSize, int mutationLevel)
         {
             if(tournamentSize > parentalPopulation.Count())
             {
@@ -31,7 +31,7 @@ namespace MuPlusLambdaAlgorithm
 
             Individual offspringParent = tournamentWinners.OrderBy(x => x.F).FirstOrDefault();
 
-            double mutationChange = random.NextDouble() * 2 * mutationLevel - mutationLevel;
+            int mutationChange = random.Next(-mutationLevel, mutationLevel);
             double x1, x2;
 
             if(offspringParent.X1 + mutationChange < 0 )  // mutationChange value is less than 0
@@ -44,7 +44,7 @@ namespace MuPlusLambdaAlgorithm
             }
             else
             {
-                x1 = offspringParent.X1 - mutationChange;
+                x1 = offspringParent.X1 + mutationChange;
             }
 
             if (offspringParent.X2 + mutationChange < 0)  // mutationChange value is less than 0
@@ -57,7 +57,7 @@ namespace MuPlusLambdaAlgorithm
             }
             else
             {
-                x2 = offspringParent.X2 - mutationChange;
+                x2 = offspringParent.X2 + mutationChange;
             }
 
             return new Individual(x1, x2);

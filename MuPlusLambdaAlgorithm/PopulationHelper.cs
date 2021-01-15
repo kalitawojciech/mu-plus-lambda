@@ -22,5 +22,23 @@ namespace MuPlusLambdaAlgorithm
 
             return population.ToList();
         }
+
+        public static List<Individual> GetNewParentalPopulation(List<Individual> population, int mu)
+        {
+            return population.OrderBy(x => x.F).Take(mu).ToList();
+        }
+
+        public static bool CheckIfPopulationContainsIndividual(List<Individual> population, Individual individual)
+        {
+            foreach(Individual populationMember in population)
+            {
+                if(populationMember.X1 == individual.X1 && populationMember.X2 == individual.X2)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

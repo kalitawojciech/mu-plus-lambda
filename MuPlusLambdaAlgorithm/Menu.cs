@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MuPlusLambdaAlgorithm
 {
@@ -9,7 +10,7 @@ namespace MuPlusLambdaAlgorithm
             InitializeComponent();
         }
 
-        private void startAlghoritmButton_Click(object sender, System.EventArgs e)
+        private async void startAlghoritmButton_Click(object sender, System.EventArgs e)
         {
             MuPlusLambdaForm muPlusLambdaForm 
                 = new MuPlusLambdaForm(
@@ -17,10 +18,10 @@ namespace MuPlusLambdaAlgorithm
                     (int)this.lambdaNumericInput.Value,
                     (int)this.iterationsCountNumericInput.Value,
                     (int)this.tournamentSizeNumericInput.Value,
-                    (double)this.mutationLevelNumericInput.Value
+                    (int)this.mutationLevelNumericInput.Value
                     );
             muPlusLambdaForm.Show();
-            muPlusLambdaForm.MuPlusLambdaAlghoritm();
+            await muPlusLambdaForm.MuPlusLambdaAlghoritm();
         }
     }
 }

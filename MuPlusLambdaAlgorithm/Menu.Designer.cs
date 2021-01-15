@@ -86,7 +86,7 @@ namespace MuPlusLambdaAlgorithm
             // 
             this.lambdaNumericInput.Location = new System.Drawing.Point(129, 54);
             this.lambdaNumericInput.Minimum = new decimal(new int[] {
-            15,
+            10,
             0,
             0,
             0});
@@ -94,7 +94,7 @@ namespace MuPlusLambdaAlgorithm
             this.lambdaNumericInput.Size = new System.Drawing.Size(120, 22);
             this.lambdaNumericInput.TabIndex = 3;
             this.lambdaNumericInput.Value = new decimal(new int[] {
-            15,
+            10,
             0,
             0,
             0});
@@ -156,30 +156,24 @@ namespace MuPlusLambdaAlgorithm
             this.tournamentSizeNumericInput.Size = new System.Drawing.Size(120, 22);
             this.tournamentSizeNumericInput.TabIndex = 8;
             this.tournamentSizeNumericInput.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
             // 
             // mutationLevelNumericInput
             // 
-            this.mutationLevelNumericInput.DecimalPlaces = 2;
-            this.mutationLevelNumericInput.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
             this.mutationLevelNumericInput.Location = new System.Drawing.Point(129, 91);
             this.mutationLevelNumericInput.Minimum = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
-            65536});
+            0});
             this.mutationLevelNumericInput.Name = "mutationLevelNumericInput";
             this.mutationLevelNumericInput.Size = new System.Drawing.Size(120, 22);
             this.mutationLevelNumericInput.TabIndex = 9;
             this.mutationLevelNumericInput.Value = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});

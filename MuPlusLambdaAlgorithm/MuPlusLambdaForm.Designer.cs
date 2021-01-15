@@ -40,7 +40,7 @@ namespace MuPlusLambdaAlgorithm
             this.muPlusLambdaChart.ChartAreas.Add(chartArea1);
             this.muPlusLambdaChart.Location = new System.Drawing.Point(0, 0);
             this.muPlusLambdaChart.Name = "muPlusLambdaChart";
-            this.muPlusLambdaChart.Size = new System.Drawing.Size(700, 700);
+            this.muPlusLambdaChart.Size = new System.Drawing.Size(778, 700);
             this.muPlusLambdaChart.TabIndex = 0;
             this.muPlusLambdaChart.Text = "Chart";
             // 
@@ -48,7 +48,7 @@ namespace MuPlusLambdaAlgorithm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 753);
+            this.ClientSize = new System.Drawing.Size(1013, 753);
             this.Controls.Add(this.muPlusLambdaChart);
             this.Name = "MuPlusLambdaForm";
             this.Text = "MuPlusLambda";

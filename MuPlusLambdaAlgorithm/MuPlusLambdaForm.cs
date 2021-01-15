@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -7,14 +9,15 @@ namespace MuPlusLambdaAlgorithm
     public partial class MuPlusLambdaForm : Form
     {
         private List<Individual> _parentalPopulation = new List<Individual>();
-        private List<Individual> _offspringPopulation; // populacja potomna
+        private List<Individual> _offspringPopulation = new List<Individual>();
+        private List<Individual> _wholePopulation;
         private int _mu;
         private int _lambda;
         private int _iterationsCount;
         private int _tournamentSize;
-        public double _mutationLevel;
+        public int _mutationLevel;
 
-        public MuPlusLambdaForm(int mu, int lambda, int iterationsCount, int tournamentSize, double mutationLevel)
+        public MuPlusLambdaForm(int mu, int lambda, int iterationsCount, int tournamentSize, int mutationLevel)
         {
             InitializeComponent();
             _mu = mu;
@@ -24,16 +27,41 @@ namespace MuPlusLambdaAlgorithm
             _mutationLevel = mutationLevel;
         }
 
-        public void MuPlusLambdaAlghoritm()
+        public async Task MuPlusLambdaAlghoritm()
         {
             _parentalPopulation = PopulationHelper.DrawPopulation(_mu);
             ClearChart();
             CreateChart();
             DrawParentsOnChart();
 
+            await Task.Delay(1000);
+
             for (int iteration = 0; iteration < _iterationsCount; iteration++)
             {
-                _offspringPopulation = new List<Individual>();
+                _wholePopulation = _parentalPopulation.ToList();
+
+                while(_offspringPopulation.Count() < _lambda)
+                {
+                    Individual offspring = Tournament.GetOffspring(_parentalPopulation, _tournamentSize, _mutationLevel);
+                    if(!CheckIfNewOffspringIsNotUnique(offspring))
+                    {
+                        _wholePopulation.Add(offspring);
+                        _offspringPopulation.Add(offspring);
+                    }
+                }
+
+                _parentalPopulation.Clear();
+                _parentalPopulation = PopulationHelper.GetNewParentalPopulation(_wholePopulation, _mu);
+
+                ClearChart();
+                CreateChart();
+                DrawParentsOnChart();
+
+                await Task.Delay(1000);
+
+                _offspringPopulation.Clear();
+                _wholePopulation.Clear();
+
             }
         }
 
@@ -41,9 +69,19 @@ namespace MuPlusLambdaAlgorithm
         {
             muPlusLambdaChart.ChartAreas.Add(new ChartArea(Name = "muPlusLambda"));
 
+            var area = muPlusLambdaChart.ChartAreas[0];
+            area.Position.X = 0;
+            area.Position.Y = 0;
+            area.Position.Height = 100;
+            area.Position.Width = 90;
+            area.AxisX.Minimum = 0;
+            area.AxisX.Maximum = 100;
+            area.AxisY.Minimum = 0;
+            area.AxisY.Maximum = 100;
+
             Legend legend = new Legend();
             legend.Name = "Legend";
-            muPlusLambdaChart.Legends.Add(legend);
+            muPlusLambdaChart.Legends.Add(legend); 
         }
 
         public void DrawParentsOnChart()
@@ -53,7 +91,7 @@ namespace MuPlusLambdaAlgorithm
                 Name = $"Parents",
                 ChartType = SeriesChartType.Point,
                 MarkerStyle = MarkerStyle.Circle,
-                MarkerSize = 10
+                MarkerSize = 10,
             };
 
             for (int i = 0; i < _mu; i++)
@@ -68,6 +106,13 @@ namespace MuPlusLambdaAlgorithm
         {
             muPlusLambdaChart.Series.Clear();
             muPlusLambdaChart.Legends.Clear();
+            muPlusLambdaChart.ChartAreas.Clear();
+        }
+
+        private bool CheckIfNewOffspringIsNotUnique(Individual individual)
+        {
+            return PopulationHelper.CheckIfPopulationContainsIndividual(_parentalPopulation, individual)
+                && PopulationHelper.CheckIfPopulationContainsIndividual(_offspringPopulation, individual);
         }
 
 
