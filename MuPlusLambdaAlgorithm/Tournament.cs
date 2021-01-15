@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuPlusLambdaAlgorithm
 {
@@ -34,33 +32,24 @@ namespace MuPlusLambdaAlgorithm
             int mutationChange = random.Next(-mutationLevel, mutationLevel);
             float x1, x2;
 
-            if(offspringParent.X1 + mutationChange < 0 )  // mutationChange value is less than 0
-            {
-                x1 = offspringParent.X1 - mutationChange;
-            }
-            else if(offspringParent.X1 + mutationChange > 100) // mutationChange value is greater than 0
-            {
-                x1 = offspringParent.X1 - mutationChange;
-            }
-            else
-            {
-                x1 = offspringParent.X1 + mutationChange;
-            }
-
-            if (offspringParent.X2 + mutationChange < 0)  // mutationChange value is less than 0
-            {
-                x2 = offspringParent.X2 - mutationChange;
-            }
-            else if (offspringParent.X2 + mutationChange > 100) // mutationChange value is greater than 0
-            {
-                x2 = offspringParent.X2 - mutationChange;
-            }
-            else
-            {
-                x2 = offspringParent.X2 + mutationChange;
-            }
+            x1 = CalculateNewParameterValue(offspringParent.X1, mutationChange);
+            x2 = CalculateNewParameterValue(offspringParent.X2, mutationChange);
 
             return new Individual(x1, x2);
+        }
+
+        private static float CalculateNewParameterValue(float oldParameterValue, int mutationChange)
+        {
+            if (oldParameterValue + mutationChange < 0)  // mutationChange value is less than 0
+            {
+                return oldParameterValue - mutationChange;
+            }
+            else if (oldParameterValue + mutationChange > 100) // mutationChange value is greater than 0
+            {
+                return oldParameterValue - mutationChange;
+            }
+
+            return oldParameterValue + mutationChange;
         }
     }
 }

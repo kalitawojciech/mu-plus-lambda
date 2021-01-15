@@ -49,11 +49,11 @@
   <ItemGroup>
     <Compile Include="Helper.cs" />
     <Compile Include="Individual.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MuPlusLambdaForm.cs">
       <SubType>Form</SubType>
@@ -65,8 +65,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tournament.cs" />
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MuPlusLambdaForm.resx">
       <DependentUpon>MuPlusLambdaForm.cs</DependentUpon>

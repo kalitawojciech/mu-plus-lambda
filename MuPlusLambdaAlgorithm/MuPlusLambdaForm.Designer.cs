@@ -44,14 +44,14 @@ namespace MuPlusLambdaAlgorithm
             this.muPlusLambdaChart.ChartAreas.Add(chartArea1);
             this.muPlusLambdaChart.Location = new System.Drawing.Point(0, 0);
             this.muPlusLambdaChart.Name = "muPlusLambdaChart";
-            this.muPlusLambdaChart.Size = new System.Drawing.Size(778, 700);
+            this.muPlusLambdaChart.Size = new System.Drawing.Size(875, 700);
             this.muPlusLambdaChart.TabIndex = 0;
             this.muPlusLambdaChart.Text = "Chart";
             // 
             // theBestResultLabel
             // 
             this.theBestResultLabel.AutoSize = true;
-            this.theBestResultLabel.Location = new System.Drawing.Point(794, 13);
+            this.theBestResultLabel.Location = new System.Drawing.Point(881, 18);
             this.theBestResultLabel.Name = "theBestResultLabel";
             this.theBestResultLabel.Size = new System.Drawing.Size(103, 17);
             this.theBestResultLabel.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace MuPlusLambdaAlgorithm
             // iterationLabel
             // 
             this.iterationLabel.AutoSize = true;
-            this.iterationLabel.Location = new System.Drawing.Point(794, 46);
+            this.iterationLabel.Location = new System.Drawing.Point(881, 51);
             this.iterationLabel.Name = "iterationLabel";
             this.iterationLabel.Size = new System.Drawing.Size(59, 17);
             this.iterationLabel.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace MuPlusLambdaAlgorithm
             // theBestResultValueLabel
             // 
             this.theBestResultValueLabel.AutoSize = true;
-            this.theBestResultValueLabel.Location = new System.Drawing.Point(913, 13);
+            this.theBestResultValueLabel.Location = new System.Drawing.Point(1000, 18);
             this.theBestResultValueLabel.Name = "theBestResultValueLabel";
             this.theBestResultValueLabel.Size = new System.Drawing.Size(0, 17);
             this.theBestResultValueLabel.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace MuPlusLambdaAlgorithm
             // iterationValueLabel
             // 
             this.iterationValueLabel.AutoSize = true;
-            this.iterationValueLabel.Location = new System.Drawing.Point(913, 46);
+            this.iterationValueLabel.Location = new System.Drawing.Point(1000, 51);
             this.iterationValueLabel.Name = "iterationValueLabel";
             this.iterationValueLabel.Size = new System.Drawing.Size(0, 17);
             this.iterationValueLabel.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace MuPlusLambdaAlgorithm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 753);
+            this.ClientSize = new System.Drawing.Size(1073, 753);
             this.Controls.Add(this.iterationValueLabel);
             this.Controls.Add(this.theBestResultValueLabel);
             this.Controls.Add(this.iterationLabel);

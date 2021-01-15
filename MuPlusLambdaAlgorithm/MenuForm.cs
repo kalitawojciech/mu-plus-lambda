@@ -1,11 +1,10 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MuPlusLambdaAlgorithm
 {
-    public partial class Menu : Form
+    public partial class MenuForm : Form
     {
-        public Menu()
+        public MenuForm()
         {
             InitializeComponent();
         }

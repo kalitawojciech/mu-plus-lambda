@@ -76,7 +76,7 @@ namespace MuPlusLambdaAlgorithm
             area.Position.X = 0;
             area.Position.Y = 0;
             area.Position.Height = 100;
-            area.Position.Width = 90;
+            area.Position.Width = 80;
             area.AxisX.Minimum = 0;
             area.AxisX.Maximum = 100;
             area.AxisY.Minimum = 0;
@@ -94,7 +94,7 @@ namespace MuPlusLambdaAlgorithm
                 Name = $"Parents",
                 ChartType = SeriesChartType.Point,
                 MarkerStyle = MarkerStyle.Circle,
-                MarkerSize = 10,
+                MarkerSize = 5,
             };
 
             for (int i = 0; i < _mu; i++)
