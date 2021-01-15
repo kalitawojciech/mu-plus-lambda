@@ -7,6 +7,7 @@ namespace MuPlusLambdaAlgorithm
     public partial class MuPlusLambdaForm : Form
     {
         private List<Individual> _parentalPopulation = new List<Individual>();
+        private List<Individual> _offspringPopulation; // populacja potomna
         private int _mu;
         private int _lambda;
         private int _iterationsCount;
@@ -29,6 +30,11 @@ namespace MuPlusLambdaAlgorithm
             ClearChart();
             CreateChart();
             DrawParentsOnChart();
+
+            for (int iteration = 0; iteration < _iterationsCount; iteration++)
+            {
+                _offspringPopulation = new List<Individual>();
+            }
         }
 
         public void CreateChart()
@@ -38,7 +44,6 @@ namespace MuPlusLambdaAlgorithm
             Legend legend = new Legend();
             legend.Name = "Legend";
             muPlusLambdaChart.Legends.Add(legend);
-
         }
 
         public void DrawParentsOnChart()
@@ -62,7 +67,6 @@ namespace MuPlusLambdaAlgorithm
         public void ClearChart()
         {
             muPlusLambdaChart.Series.Clear();
-            muPlusLambdaChart.ChartAreas.Clear();
             muPlusLambdaChart.Legends.Clear();
         }
 
