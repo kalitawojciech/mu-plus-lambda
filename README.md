@@ -1,4 +1,4 @@
-# Mu + Lambda Algrithm
+# Mu + Lambda Algorithm
 
 Implementation of the **Mu + Lambda alghoritm**
 
