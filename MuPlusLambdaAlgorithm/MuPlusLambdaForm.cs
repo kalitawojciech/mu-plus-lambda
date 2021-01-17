@@ -125,7 +125,7 @@ namespace MuPlusLambdaAlgorithm
                 MarkerSize = 10,
             };
 
-            for (int i = 0; i < _mu; i++)
+            for (int i = 0; i < _lambda; i++)
             {
                 serieOfOffspringPopulation.Points.AddXY(_offspringPopulation[i].X1, _offspringPopulation[i].X2);
             }

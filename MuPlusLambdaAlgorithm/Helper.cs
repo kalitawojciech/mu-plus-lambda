@@ -21,5 +21,11 @@ namespace MuPlusLambdaAlgorithm
 
             return (float)result;
         }
+
+        public static int Possibility()
+        {
+            Random random = new Random();
+            return random.Next(1, 100);
+        }
     }
 }
