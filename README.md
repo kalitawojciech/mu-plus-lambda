@@ -1,6 +1,6 @@
 # Mu + Lambda Algorithm
 
-Implementation of the **Mu + Lambda alghoritm**
+Implementation of the **Mu + Lambda algorithm**
 
 #### Technologies used to write the algorithm: 
  * Windows Forms
